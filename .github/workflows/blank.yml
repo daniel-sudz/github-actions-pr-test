@@ -28,9 +28,10 @@ jobs:
       # Custom deploy code is used to selectively deploy firebase functions that have changes
       # This code is located in functions/deployCache
       # The following lines commit the functions/entryPoints.json file which contains updated hashes used to determine which functions are needed to be deployed.  
+      # Note: a nice feature is that commits from within github actions do not trigger workflows: https://github.community/t/push-from-action-does-not-trigger-subsequent-action/16854
       - name: Commit Firebase Cache Files Back
         run: |
-          touch file.test # test file
+          touch file2.test # test file
           git config --global user.email "<>"
           git config --global user.name "Automatic Firebase Functions Hash Commit"
           git add .
